@@ -1,0 +1,41 @@
+
+.cardSong{
+    width: 100%;
+    max-width: 600px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    border-radius: 20px;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+.cardSong:hover{
+    background-color: rgb(66, 66, 66);
+}
+.cardSong_img{
+    width: 20%;
+    max-width: 80px;
+}
+.cardSong_InfoSong,.cardSong_Span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.cardSong_InfoSong{
+    width: 70%;
+    max-width: 400px;
+    padding: 5px;
+}
+
+.cardSong_P{
+    color: white;
+    margin: 0;
+}
+.cardSong_Span{
+    width: 10%;
+    max-width: 120px;
+    color: white;
+    padding: 5px;
+}
