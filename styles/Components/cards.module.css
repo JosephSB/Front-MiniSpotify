@@ -29,9 +29,12 @@
     padding: 5px;
 }
 
-.cardSong_P{
+.cardSong_P,.cardSong_P__title{
     color: white;
     margin: 0;
+}
+.cardSong_P__title{
+    font-size: 18px;
 }
 .cardSong_Span{
     width: 10%;

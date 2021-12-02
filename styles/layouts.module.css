@@ -1,0 +1,112 @@
+
+/*-------------------------------------*/
+/*-----------------ASIDE---------------*/
+/*-------------------------------------*/
+.Aside{
+    width: 100%;
+    max-width: 240px;
+    height: 100%;
+    background-color: black;
+}
+.Aside_NavLink{
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    padding-top: 20px;
+    margin: 0;
+}
+.bar_bottom{
+    border-bottom: 1px solid white;
+}
+.Aside_Link{
+    margin: 5px;
+    text-decoration: none;
+    list-style: none;
+}
+.Aside_P{
+    padding: 10px;
+}
+.Aside_Link a,.Aside_P{
+    color: rgb(179, 179, 179);
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    transition: color .5s;
+}
+.Aside_Link a:hover,.Aside_P:hover{
+    color: white;
+}
+
+
+/*-------------------------------------*/
+/*--------------REPRODUCTOR------------*/
+/*-------------------------------------*/
+.Reproductor,.Reproductor_Botones,.Reproductor_Portada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Reproductor{
+    width: 100%;
+    height: 10%;
+    min-height: 80px;
+    background-color: var(--PrimaryCorlor);
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid rgb(82, 82, 82);
+    justify-content: space-between;
+}
+
+.Reproductor_Portada{
+    width: 20%; 
+    max-width: 200px;  
+}
+
+.Reproductor_Controles{
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.Reproductor_Volumen{
+    width: 20%;
+    max-width: 200px;
+}
+
+.Portada{
+    width: 100%;
+    max-width: 80px; 
+    padding: 10px; 
+}
+.letter{
+    color: white;
+}
+
+.Reproductor_Botones{
+    width: 100%;
+    margin: 5px 0;
+}
+.icon{
+    cursor: pointer;
+    margin: 5px;
+    color: rgb(219, 219, 219);
+}
+.icon:hover{
+    color: white;
+}
+.progressBarPlayback{
+    width: 100%;
+    height: 5px;
+    background-color: #535353;
+    border-radius: 2px;
+}
+/*-------------------------------------*/
+/*-----------------USER----------------*/
+/*-------------------------------------*/
+
+.BoxUser{
+    position: absolute;
+    right: 0;
+    width: 200px;
+    height: 80px;
+    color:  white;
+}

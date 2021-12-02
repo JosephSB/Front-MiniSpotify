@@ -1,4 +1,4 @@
-.Reproductor,.Reproductor_Botones{
+.Reproductor,.Reproductor_Botones,.Reproductor_Portada{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,21 +11,42 @@
     position: absolute;
     bottom: 0;
     border-top: 1px solid rgb(82, 82, 82);
+    justify-content: space-between;
+}
+
+.Reproductor_Portada{
+    width: 20%; 
+    max-width: 200px;  
 }
 
 .Reproductor_Controles{
-    width: 100%;
+    width: 60%;
     max-width: 400px;
     text-align: center;
 }
+
+.Reproductor_Volumen{
+    width: 20%;
+    max-width: 200px;
+}
+
+.Portada{
+    width: 100%;
+    max-width: 80px; 
+    padding: 10px; 
+}
+.letter{
+    color: white;
+}
+
 .Reproductor_Botones{
     width: 100%;
-    color: rgb(219, 219, 219);
-    margin: 5px;
+    margin: 5px 0;
 }
 .icon{
     cursor: pointer;
     margin: 5px;
+    color: rgb(219, 219, 219);
 }
 .icon:hover{
     color: white;

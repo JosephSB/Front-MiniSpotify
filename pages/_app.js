@@ -1,5 +1,6 @@
 import Aside from '../Components/Layouts/Aside'
 import Reproductor from '../Components/Layouts/Reproductor'
+import User from '../Components/Layouts/User'
 import { DataAudProvider } from '../Context/AudContext'
 import '../styles/globals.css'
 
