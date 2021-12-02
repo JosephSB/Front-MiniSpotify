@@ -27,4 +27,30 @@ a {
   position: relative;
   display: flex;
 }
+/*------------LOADER------------*/
 
+.Loader{
+  text-align: center;
+}
+.mesage-loader{
+  color: white;
+  font-size: 20px;
+}
+.preloader {
+  width: 70px;
+  height: 70px;
+  border: 10px solid #eee;
+  border-top: 10px solid #666;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,8 @@
-import React from 'react';
+import React,{useContext, useEffect,useState} from 'react';
 import Link from 'next/link'
+import { helpHttp } from '../../Helpers/helpHttp'
+
+/*-----------FONT AWSOME---------------*/
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faUpload } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
@@ -8,9 +11,29 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import styles from '../../styles/layouts.module.css'
+import styles from '../../styles/Components/layouts.module.css'
+import AuthContext from '../../Context/AuthContext';
+import ItemPlaylist from '../Items/itemPlaylist';
 
 const Aside = () =>{
+    const [playlists, setPlaylists] = useState([]);
+    const {Username,UserID} = useContext(AuthContext);
+
+    useEffect(() => {
+        if(UserID.length > 0){
+            let options = {
+                body: {userID : UserID}
+            }
+            let url = process.env.NEXT_PUBLIC_API_KEY_GETPLAYLISTS
+    
+            helpHttp().post(url,options).then(res => {
+                if(res.operation){
+                    setPlaylists(res.data)
+                }
+            })
+        }
+    }, [UserID]);
+
     return (
         <nav className={styles.Aside}>
             <ul className={styles.Aside_NavLink + " "+styles.bar_bottom}>
@@ -47,17 +70,17 @@ const Aside = () =>{
                     </Link>
                 </li>
                 <li className={styles.Aside_Link}>
-                    <Link href="/Usuario">
+                    <Link href={Username.length === 0 ? "/Auth/Login" :`/Usuario/${UserID}`}>
                         <a>
                             <FontAwesomeIcon icon={faUser} />
-                            &nbsp;Inicia Sesion
+                            &nbsp;{Username.length === 0 ? "Iniciar Sesion" : Username}
                         </a>
                     </Link>
                 </li>
             </ul>
             <ul className={styles.Aside_NavLink}>
                 <li className={styles.Aside_Link}>
-                <Link href="/">
+                <Link href="/Playlist/Create">
                     <a>
                         <FontAwesomeIcon className={styles.Icon} icon={faPlusCircle} />
                         &nbsp; Crear Playlist
@@ -65,14 +88,12 @@ const Aside = () =>{
                 </Link>
                 </li>
             </ul>
+            
             <ul className={styles.Aside_NavLink}>
-                <li className={styles.Aside_Link}>
-                    <Link href="/">
-                        <a>
-                            Play1
-                        </a>
-                    </Link>
-                </li>
+                {playlists.length > 0 
+                    ? playlists.map(item => <ItemPlaylist key={item.ID_PLAYLIST} {...item} />)
+                    : <a className={styles.letter}>No hay playlist, cree una</a>
+                }
             </ul>
         </nav>
     )

@@ -1,0 +1,27 @@
+
+/*--------GLOBAL-----------*/
+.Btn1{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+/*--------MEDIDAS-----------*/
+.Btn1{
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+}
+/*--------STYLES-----------*/
+.Btn1{
+    background-color: rgb(50, 205, 50);
+    border-bottom: 4px solid rgb(38, 163, 38);
+    color: rgb(31, 31, 31);
+    font-size: 15px;
+}
+
+.Btn1:hover{
+    background-color: rgb(60, 219, 60); 
+    border-bottom: 2px solid rgb(49, 185, 49);
+}

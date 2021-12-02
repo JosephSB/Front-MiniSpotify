@@ -1,5 +1,5 @@
 import React,{useContext,useEffect,useState} from 'react';
-import style from '../../styles/layouts.module.css'
+import style from '../../styles/Components/layouts.module.css'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 import { faStepBackward } from '@fortawesome/free-solid-svg-icons'

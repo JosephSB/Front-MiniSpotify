@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../styles/layouts.module.css'
+import styles from '../../styles/Components/layouts.module.css'
 
 const User = () =>{
     return(

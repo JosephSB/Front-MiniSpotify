@@ -10,7 +10,7 @@ function Home() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    helpHttp().get(`http://localhost/Spotify/API/music/getSongs/page=${page}`)
+    helpHttp().get(process.env.NEXT_PUBLIC_API_KEY_GETSONGS+page)
       .then(data =>{
         setSongs(data.data)
       })
