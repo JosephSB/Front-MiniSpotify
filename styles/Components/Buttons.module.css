@@ -17,8 +17,8 @@
 .Btn1{
     background-color: rgb(50, 205, 50);
     border-bottom: 4px solid rgb(38, 163, 38);
-    color: rgb(31, 31, 31);
-    font-size: 15px;
+    color: whitesmoke;
+    font-size: 18px;
 }
 
 .Btn1:hover{

@@ -1,8 +1,6 @@
 .containerHome{
     width: 100%;
     height: 100%;
-    background-color: var(--PrimaryCorlor);
-    padding: 15px;
 }
 .title{
     color: white;

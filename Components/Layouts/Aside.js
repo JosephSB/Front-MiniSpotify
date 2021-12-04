@@ -17,7 +17,8 @@ import ItemPlaylist from '../Items/itemPlaylist';
 
 const Aside = () =>{
     const [playlists, setPlaylists] = useState([]);
-    const {Username,UserID} = useContext(AuthContext);
+    const {data} = useContext(AuthContext);
+    const {Username,UserID} = data;
 
     useEffect(() => {
         if(UserID.length > 0){
@@ -70,7 +71,7 @@ const Aside = () =>{
                     </Link>
                 </li>
                 <li className={styles.Aside_Link}>
-                    <Link href={Username.length === 0 ? "/Auth/Login" :`/Usuario/${UserID}`}>
+                    <Link href={Username.length === 0 ? "/Auth/Login" :`/Usuario/${UserID.replace('#', '')}`}>
                         <a>
                             <FontAwesomeIcon icon={faUser} />
                             &nbsp;{Username.length === 0 ? "Iniciar Sesion" : Username}

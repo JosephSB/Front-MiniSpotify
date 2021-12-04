@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }) {
       <DataAudProvider>
         <div className="container">
           <Aside/>
-          <Component {...pageProps} />
+          <div className="Content-Responsive">
+            <Component {...pageProps} />
+          </div>
           <Reproductor/>
         </div>
       </DataAudProvider>

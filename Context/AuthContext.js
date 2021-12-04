@@ -25,13 +25,19 @@ const DataAuthProvider = ({ children }) => {
         })
     }
 
+    const removeToken = () =>{
+        window.sessionStorage.removeItem('token')
+    }
+
     useEffect(() => {
         let token = window.sessionStorage.getItem('token')
         //window.sessionStorage.setItem('token', "8825a67a298b3ee2fddad6947465c745")
         if(token) validarToken(token)
     }, []);
 
-  return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
+    const dataAuth = {data,removeToken}
+
+  return <AuthContext.Provider value={dataAuth}>{children}</AuthContext.Provider>;
 };
 
 export { DataAuthProvider };

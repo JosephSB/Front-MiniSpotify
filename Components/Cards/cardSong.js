@@ -3,7 +3,7 @@ import AudContext from '../../Context/AudContext';
 import styles from '../../styles/Components/cards.module.css'
 
 const CardSong = (props) =>{
-    const {setPlaying,audio,setDataSong, dataSong} = useContext(AudContext);
+    const {setPlaying,audio,setDataSong} = useContext(AudContext);
 
     const playSong = () =>{
         setDataSong({ 
