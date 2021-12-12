@@ -1,7 +1,6 @@
 import {useState} from 'react';
-//import Btn1 from '../../Components/Buttons/Btn1';
-
 import { helpHttp } from '../../Helpers/helpHttp'
+import { NavLink } from 'react-router-dom';
 
 const formDefault = {
     Username: "",
@@ -20,7 +19,7 @@ const Login = () =>{
         let options = {
             body: form
         }
-        let url = process.env.NEXT_PUBLIC_API_KEY_VALIDARUSER
+        let url = process.env.REACT_APP_API_KEY_URL+'usuarios/ValidateUser'
 
         helpHttp().post(url,options).then(res => {
             if(res.operation){
@@ -32,24 +31,37 @@ const Login = () =>{
 
 
     return (
-        <div className={css.container}>
-            <h1 className={css.Tittle}>Login</h1>
-            <p className={css.SpanError}>{messageError}</p>
-            <form className={css.Form} onSubmit={handleSubmit}>
-                <input className={css.input} type="text" 
+        <div className="Container Auth">
+            <h1 className="Auth_Tittle">Login</h1>
+            <p className="Auth_SpanError">{messageError}</p>
+            <form className="Auth_Form" onSubmit={handleSubmit}>
+                <input className="Auth_input" type="text" 
                 onChange={handleChange} placeholder="Username"
                 name="Username" />
-                <input className={css.input} type="password" 
+                <input className="Auth_input" type="password" 
                 onChange={handleChange} placeholder="password"
                 name="Password" suggested= "current-password"/>
-                <Btn1 name={"Inicia Sesion"} action={handleSubmit} />
+                <button className="Auth_Btn1" onClick={handleSubmit}>
+                    Inicia Sesion
+                </button>
                 <br/>
-                <Link href="/Auth/Register">
-                    <span className={css.span}>¿No tienes cuenta?, ¡Registrate!</span>
-                </Link>
+                <NavLink
+                className="Auth_span"
+                exact="true" to="/Register"
+                activeclassname="active"
+                >
+                    ¿No tienes cuenta?, ¡Registrate!
+                </NavLink>
             </form>
         </div>
     )
 }
 
 export default Login
+
+/*
+               <Btn1 name={"Inicia Sesion"} action={handleSubmit} />
+                <br/>
+                <Link href="/Auth/Register">
+                    <span className="span">¿No tienes cuenta?, ¡Registrate!</span>
+                </Link>*/

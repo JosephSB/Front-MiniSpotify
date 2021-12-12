@@ -7,7 +7,6 @@ const Home = () =>{
     const [songs, setSongs] = useState([]);
     const [page, setPage] = useState(1);
     
-    console.log(process.env.REACT_APP_API_KEY_URL)
 
     useEffect(() => {
       helpHttp().get(process.env.REACT_APP_API_KEY_URL+'music/getSongs/page='+page)

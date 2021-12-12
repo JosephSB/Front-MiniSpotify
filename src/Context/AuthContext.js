@@ -18,7 +18,7 @@ const DataAuthProvider = ({ children }) => {
         let options = {
             body: {Token : token}
         }
-        let url = process.env.NEXT_PUBLIC_API_KEY_VALIDARTOKEN
+        let url = process.env.REACT_APP_API_KEY_URL+'usuarios/validarToken';
 
         helpHttp().post(url,options).then(res => {
             if(res.operation) setData(res.data)

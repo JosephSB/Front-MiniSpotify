@@ -17,10 +17,9 @@ const Aside = () =>{
             let options = {
                 body: {userID : UserID}
             }
-            let url = process.env.REACT_API_KEY_URL+'playlist/getPlaylist'
-    
-            helpHttp().post(url,options).then(res => {
+            let url = process.env.REACT_APP_API_KEY_URL+'playlist/getPlaylist'
 
+            helpHttp().post(url,options).then(res => {
                 if(res.operation) setPlaylists(res.data)
             })
         }
