@@ -1,10 +1,16 @@
 .Reproductor,.Aside{
     position: fixed;
-    position: fixed;
 }
 @import "aside";
 @import "Reproductor";
-
+.icon{
+    cursor: pointer;
+    margin: 5px;
+    color: rgb(219, 219, 219);
+}
+.icon:hover{
+    color: white;
+}
 .active{
     color: white ;
 }

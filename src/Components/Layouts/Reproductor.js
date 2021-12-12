@@ -18,8 +18,8 @@ const Reproductor = () =>{
     return (
         <div className="Reproductor">
             <div className="Reproductor_Portada">
-                <img className="Portada" src={dataSong.ImgPortada} alt={dataSong.NameSong} />
-                <p className="letter">{dataSong.NameSong}</p>
+                <img className="Reproductor_ImgPortada" src={dataSong.ImgPortada} alt={dataSong.NameSong} />
+                <p className="Reproductor_letter">{dataSong.NameSong}</p>
             </div>
             <div className="Reproductor_Controles">
                 <div className="Reproductor_Botones">
@@ -29,7 +29,7 @@ const Reproductor = () =>{
                     ></i>
                     <i className="fas fa-forward icon"></i>
                 </div>
-                <div className="progressBarPlayback"></div>
+                <div className="Reproductor_progressBarPlayback"></div>
             </div>
             <div className="Reproductor_Volumen">
                 <i className="fas fa-volume-up icon"></i>
