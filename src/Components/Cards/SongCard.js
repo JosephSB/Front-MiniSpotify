@@ -16,16 +16,19 @@ const SongCard = ({SONGNAME,URLPORTADA,USERNAME,GENDER,URL_AUDIO}) =>{
 
     return(
         <div className="cardSong" onClick={playSong}>
-            <img className="cardSong_img" src={ URLPORTADA }/>
-            <div className="cardSong_InfoSong">
-            <p className="cardSong_P__title"><strong>{ SONGNAME }</strong></p>
-            <p className="cardSong_P">
-                <strong>Upload by:</strong>
-                &nbsp;
-                { USERNAME }
-            </p>
+            <img className="cardSong__ImgPortada" src={ URLPORTADA } alt={SONGNAME} />
+            <div>
+                <p><strong>{ SONGNAME }</strong></p>
+                <p>
+                    <strong>upload by:</strong>
+                    &nbsp;
+                    { USERNAME }
+                </p>
             </div>
-            <span className="cardSong_Span">{ GENDER }</span>
+            <p>{ GENDER }</p>
+            <span>
+                <i className="fas fa-star cardSong__Icon"></i>
+            </span>
         </div>
     )
 }

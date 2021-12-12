@@ -18,7 +18,7 @@ const Reproductor = () =>{
     return (
         <div className="Reproductor">
             <div className="Reproductor_Portada">
-                <img className="Portada" src={dataSong.ImgPortada}/>
+                <img className="Portada" src={dataSong.ImgPortada} alt={dataSong.NameSong} />
                 <p className="letter">{dataSong.NameSong}</p>
             </div>
             <div className="Reproductor_Controles">
