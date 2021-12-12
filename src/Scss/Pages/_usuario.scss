@@ -1,16 +1,17 @@
-.Container,.Sections,.ContentUser,
-.SectionSongs,.SectionPlaylist{
+.Usuario,.Usuario_Sections,.Usuario_ContentUser,
+.Usuario_SectionSongs,.Usuario_SectionPlaylist{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.Container{
+.Usuario{
     width: 100%;
     height: 100%;
+    padding-top: 60px;
     min-height: 800px;
     flex-direction: column;
 }
-.ContentUser{
+.Usuario_ContentUser{
     width: 100%;
     max-width: 500px;
     padding: 10px 0;
@@ -18,23 +19,23 @@
     border-bottom: 1px solid whitesmoke;
     position: relative;
 }
-.Sections{
+.Usuario_Sections{
     padding: 10px 0;
     width: 100%;
     flex-wrap: wrap;
     padding-bottom: 100px;
 }
-.SectionSongs,.SectionPlaylist{
+.Usuario_SectionSongs,.Usuario_SectionPlaylist{
     width: 100%;
     max-width: 500px; 
     flex-direction: column;
 }
-.SectionSongs{
+.Usuario_SectionSongs{
     border-right: 1px solid whitesmoke;
 }
 
 
-.BtnExit{
+.Usuario_BtnExit{
     position: absolute;
     color: white;
     right: 0;
@@ -42,23 +43,20 @@
     cursor: pointer;
 }
 
-
-
-.ImgPerfil{
-    width: 100%;
-    max-width: 150px;
-}
-.Text{
+.Usuario_Text{
     color: white;
     font-size: 40px;
 }
-.Text2{
+.Usuario_Text2{
     color: white;
     font-size: 14px;
 }
 
 @media screen and (max-width: 400px){
-    .ContentUser{
+    .Usuario_ContentUser{
         flex-direction: column;
+    }
+    .Usuario_Text{
+        text-align: center;
     }
   }

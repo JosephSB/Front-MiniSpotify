@@ -43,34 +43,34 @@ const Usuario = () =>{
 
     return(
         <div className="Container Usuario">
-            <div className="ContentUser">
+            <div className="Usuario_ContentUser">
                 <i className="fas fa-user-circle fa-6x"></i>
                 <div>
-                    <p className="Text"><strong>{data.Username}</strong></p>
-                    <p className="Text2">
+                    <p className="Usuario_Text"><strong>{data.Username}</strong></p>
+                    <p className="Usuario_Text2">
                         Name:&nbsp; 
                         <strong>{data.Name}</strong>
                     </p>
-                    <p className="Text2">
+                    <p className="Usuario_Text2">
                         Email:&nbsp; 
                         <strong>{data.Email}</strong>
                     </p>
                 </div>
-                <span className="BtnExit" onClick={SignOut}>
+                <span className="Usuario_BtnExit" onClick={SignOut}>
                     <i className="fas fa-sign-out-alt"></i>
                     Salir
                 </span>
             </div> 
-            <div className="Sections">
-                <section className="SectionSongs">
+            <div className="Usuario_Sections">
+                <section className="Usuario_SectionSongs">
                     {data.songs.length > 0
                         ? data.songs.map(song => <SongCard key={song.UserID} {...song} />)
-                        : <p className="Text2">No hay Canciones subidad por esta persona</p>
+                        : <p className="Usuario_Text2">No hay Canciones subidad por esta persona</p>
                     
                     }
                 </section>
-                <section className="SectionPlaylist">
-                    <p className="Text2">No hay playlist subidad por esta persona</p>
+                <section className="Usuario_SectionPlaylist">
+                    <p className="Usuario_Text2">No hay playlist subidad por esta persona</p>
                 </section>
             </div>
         </div>
