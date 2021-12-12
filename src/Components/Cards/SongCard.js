@@ -25,7 +25,7 @@ const SongCard = ({SONGNAME,URLPORTADA,USERNAME,GENDER,URL_AUDIO}) =>{
                     { USERNAME }
                 </p>
             </div>
-            <p>{ GENDER }</p>
+            <p className="cardSong__Span">{ GENDER }</p>
             <span>
                 <i className="fas fa-star cardSong__Icon"></i>
             </span>

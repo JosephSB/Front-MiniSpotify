@@ -17,7 +17,7 @@ const Home = () =>{
     }, []);
 
     return (
-        <div className="Container containerHome">
+        <div className="Container">
             <p className="title">Hola &#128526;!</p>
             <div className="contentSongs">
                 {
