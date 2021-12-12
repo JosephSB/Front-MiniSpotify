@@ -4,6 +4,7 @@ const ItemLink = ({name,route,icon}) =>{
     return (
         <li className="Aside_Link">
             <NavLink 
+            className="Link"
             exact="true" to={route}
             activeclassname="active"
             >
