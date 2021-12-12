@@ -39,7 +39,7 @@ const Aside = () =>{
                     icon="fa-user" 
                     route={Username.length === 0 ? "/Login" :`/Usuario/${UserID.replace('#', '')}`}
                     />
-
+                    <ItemLink name="Favoritos" icon="fa-star" route="/Favoritos" />
                 </ul>
                 <ul className="Aside_NavLink">
                     <ItemLink name="Crear Playlist" icon="fa-plus-circle" route="/Playlist/Create" />
