@@ -4,6 +4,7 @@ import Reproductor from '../Components/Layouts/Reproductor';
 import Login from '../Pages/Auth/Login';
 import Register from '../Pages/Auth/Register';
 import Home from "../Pages/Home";
+import Usuario from '../Pages/Usuario/Usuario';
 
 const MainRouter = () =>{
     return (
@@ -13,6 +14,7 @@ const MainRouter = () =>{
                 <Route exact path="/" element={<Home/>}></Route>
                 <Route exact path="/Login" element={<Login/>}></Route>
                 <Route exact path="/Register" element={<Register/>}></Route>
+                <Route exact path="/Usuario/:id" element={<Usuario/>}></Route>
             </Routes>
             <Reproductor />
         </Router>

@@ -1,0 +1,64 @@
+.Container,.Sections,.ContentUser,
+.SectionSongs,.SectionPlaylist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container{
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    flex-direction: column;
+}
+.ContentUser{
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 0;
+    justify-content: space-around;
+    border-bottom: 1px solid whitesmoke;
+    position: relative;
+}
+.Sections{
+    padding: 10px 0;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+}
+.SectionSongs,.SectionPlaylist{
+    width: 100%;
+    max-width: 500px; 
+    flex-direction: column;
+}
+.SectionSongs{
+    border-right: 1px solid whitesmoke;
+}
+
+
+.BtnExit{
+    position: absolute;
+    color: white;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+
+
+.ImgPerfil{
+    width: 100%;
+    max-width: 150px;
+}
+.Text{
+    color: white;
+    font-size: 40px;
+}
+.Text2{
+    color: white;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 400px){
+    .ContentUser{
+        flex-direction: column;
+    }
+  }
