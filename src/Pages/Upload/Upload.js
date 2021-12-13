@@ -1,5 +1,6 @@
 import {useContext,useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import BtnUpload from '../../Components/Items/BtnUpload';
 import AuthContext from '../../Context/AuthContext';
 
 
@@ -54,31 +55,22 @@ const Upload = () =>{
     }
 
     return (
-        <div className="Container">
-            <h1 className="Tittle">Upload Song</h1>
-            <p className="SpanError">{message}</p>
-            <form className="Form">
-                <input className="Input" onChange={handleChange} 
+        <div className="Container Auth">
+            <h1 className="Auth_Tittle">Upload Song</h1>
+            <p className="Auth_SpanError">{message}</p>
+            <form className="Auth_Form">
+                <input className="Auth_input" onChange={handleChange} 
                 type="text" name="songname" 
                 placeholder="Nombre de Cancion:"
                 />
-                <input className="Input" onChange={handleChange} 
+                <input className="Auth_input" onChange={handleChange} 
                 type="text" name="gender" 
                 placeholder="Genero:"
                 />
+                <BtnUpload key="1" file={fileIMG} action={SubirIMG} name="file_img" message="Subir Portada" />
+                <BtnUpload key="2" file={fileAUD} action={SubirAUD} name="file_song" message="Subir Audio" />
 
-                <label className="subir">
-                    <i className="fas fa-cloud-upload-alt"></i>
-                    &nbsp; {fileIMG.length > 0 ? fileIMG[0].name : "Subir Portada"}
-                    <input className="InputFile" onChange={SubirIMG} type="file" name="file_img"/>
-                </label>
-                <label className="subir">
-                    <i className="fas fa-cloud-upload-alt"></i>
-                    &nbsp; {fileAUD.length > 0 ? fileAUD[0].name : "Subir Audio"}
-                    <input className="InputFile" onChange={SubirAUD} type="file" name="file_song"/>
-                </label> 
-
-                <input className="Input" onChange={handleChange} 
+                <input className="Auth_input" onChange={handleChange} 
                 type="date" name="date_premiere"
                 />
                 <button className="Btn1" onClick={sendForm}>

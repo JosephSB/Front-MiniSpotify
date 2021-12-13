@@ -1,8 +1,5 @@
 .Auth{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex-center-column;
 }
 
 .Auth_Tittle{

@@ -17,3 +17,28 @@
     background-color: rgb(60, 219, 60); 
     border-bottom: 2px solid rgb(49, 185, 49);
 }
+
+.BtnUpload{
+    display: block; 
+    padding: 5px 10px;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 150px;
+    background: rgb(38, 163, 38);;
+    color:#fff;
+    border:0px solid #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.BtnUpload:hover{
+    color:#fff;
+    background: rgb(50, 205, 50);
+}
+.BtnUpload-InputFile{
+    color: white;  
+    margin: 5px;
+    display: none;
+}
