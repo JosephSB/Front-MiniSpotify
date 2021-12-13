@@ -2,6 +2,7 @@
 @import 'items';
 @import 'cards';
 @import 'buttons';
+@import 'modals';
 /*---------Loader-------------*/
 .Loader{
     @include flex-center-column;
@@ -27,5 +28,33 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+.aparecer{
+  animation: aparecer 1s;
+}
+
+@keyframes aparecer {
+  from {
+      opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.aparecerInvertido{
+  animation: aparecer 1s;
+}
+
+@keyframes aparecer {
+  from {
+      opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
 }

@@ -3,6 +3,7 @@
 body{
     background-color: $PrimaryColor;
     font-family: $FontGeneral;
+    overflow-x: hidden;
 }
 button{
     border: none;

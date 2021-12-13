@@ -1,6 +1,6 @@
 import {useContext,useState} from 'react';
-import { useNavigate } from 'react-router-dom';
 import BtnUpload from '../../Components/Items/BtnUpload';
+import Alert from '../../Components/Modals/Alert';
 import AuthContext from '../../Context/AuthContext';
 
 
@@ -16,11 +16,10 @@ const Upload = () =>{
     const [fileIMG, setFileIMG] = useState([]);
     const [form, setForm] = useState(formDefault);
     const [message, setMessage] = useState();
+    const [alert, setAlert] = useState(null);
 
     const {data} = useContext(AuthContext);
     const {UserID} = data;
-
-    let navigate = useNavigate();
 
     const SubirIMG = (e) => setFileIMG(e.target.files);
     const SubirAUD = (e) => setFileAUD(e.target.files);
@@ -45,10 +44,8 @@ const Upload = () =>{
         .then(
             success =>
             {
-                if(success.operation){
-                    alert("Cancion subida correctamente");
-                    navigate("/");
-                }else setMessage(success.data)
+                if(success.operation) setAlert(true);
+                else setMessage(success.data);
             }
         ).catch( error => setMessage(error) );
         
@@ -56,6 +53,7 @@ const Upload = () =>{
 
     return (
         <div className="Container Auth">
+            {alert && <Alert/>}
             <h1 className="Auth_Tittle">Upload Song</h1>
             <p className="Auth_SpanError">{message}</p>
             <form className="Auth_Form">

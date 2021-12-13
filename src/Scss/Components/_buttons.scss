@@ -1,5 +1,5 @@
 /*--------BOTON-----------*/
-.Btn1{
+.Btn1,.Btn2{
     width: 100%;
     max-width: 200px;
     height: 40px;
@@ -41,4 +41,7 @@
     color: white;  
     margin: 5px;
     display: none;
+}
+.Btn2:hover{
+    background: rgb(230, 230, 230);
 }
