@@ -41,7 +41,7 @@ const Login = () =>{
                 <input className="Auth_input" type="password" 
                 onChange={handleChange} placeholder="password"
                 name="Password" suggested= "current-password"/>
-                <button className="Auth_Btn1" onClick={handleSubmit}>
+                <button className="Btn1" onClick={handleSubmit}>
                     Inicia Sesion
                 </button>
                 <br/>

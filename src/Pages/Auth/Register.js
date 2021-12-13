@@ -60,7 +60,7 @@ const Register = () =>{
                 onChange={handleChange} placeholder="Password"
                 name="Password" suggested= "current-password"
                 />
-                <button className="Auth_Btn1" onClick={handleSubmit}>
+                <button className="Btn1" onClick={handleSubmit}>
                     Registrar
                 </button>
                 <br/>
