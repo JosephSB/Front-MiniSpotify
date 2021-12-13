@@ -36,7 +36,7 @@ const Upload = () =>{
         fd.set("gender", form.gender);
         fd.set("date_premiere", form.date_premiere);
 
-        let url = process.env.REACT_APP_API_KEY_URL + 'music/Upload'
+        let url = process.env.REACT_APP_API_KEY_URL + 'music/Upload';
 
         fetch(url , { // Your POST endpoint
             method: 'POST',
@@ -50,7 +50,7 @@ const Upload = () =>{
                     navigate("/");
                 }else setMessage(success.data)
             }
-        ).catch( error => console.log(error) );
+        ).catch( error => setMessage(error) );
         
     }
 
@@ -74,7 +74,7 @@ const Upload = () =>{
                 type="date" name="date_premiere"
                 />
                 <button className="Btn1" onClick={sendForm}>
-                    Registrar
+                    Upload
                 </button>
             </form>
         </div>
