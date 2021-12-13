@@ -1,6 +1,7 @@
 
 @import 'items';
-@import 'cards.scss';
+@import 'cards';
+@import 'buttons';
 /*---------Loader-------------*/
 .Loader{
     @include flex-center-column;
