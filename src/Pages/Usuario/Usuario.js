@@ -3,6 +3,7 @@ import { helpHttp } from '../../Helpers/helpHttp'
 import AuthContext from '../../Context/AuthContext';
 import { useParams } from 'react-router-dom';
 import SongCard from '../../Components/Cards/SongCard';
+import Loader from '../../Components/Loaders/Loader';
 
 const dataDefault = {
     UserID: "",
@@ -15,11 +16,13 @@ const dataDefault = {
 const Usuario = () =>{
     const [data, setData] = useState(dataDefault);
     const [page, setPage] = useState(1);
+    const [loader, setLoader] = useState(true);
     let { id } = useParams();
 
     const {removeToken} = useContext(AuthContext);
 
     useEffect(() => {
+        setLoader(true);
         let options = {
             body: {
                 UserID: "#"+id,
@@ -30,7 +33,8 @@ const Usuario = () =>{
 
         helpHttp().post(url,options).then(res => {
             if(res.operation){
-                setData(res.data)
+                setData(res.data);
+                setLoader(false);
             }
         })
     }, [id]);
@@ -63,6 +67,7 @@ const Usuario = () =>{
             </div> 
             <div className="Usuario_Sections">
                 <section className="Usuario_SectionSongs">
+                    {loader && <Loader message="Cargando Canciones"/>}
                     {data.songs.length > 0
                         ? data.songs.map(song => <SongCard key={song.UserID} {...song} />)
                         : <p className="Usuario_Text2">No hay Canciones subidad por esta persona</p>
