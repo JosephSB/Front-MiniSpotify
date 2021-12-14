@@ -17,8 +17,10 @@
 }
 .Aside_Link{
     margin: 5px;
+    display: block;
     text-decoration: none;
     list-style: none;
+    color: rgb(179, 179, 179);
 }
 .Aside_P{
     padding: 10px;
@@ -30,7 +32,7 @@
     text-decoration: none;
     transition: color .5s;
 }
-.Aside_Link a:hover,.Aside_P:hover{
+.Aside_Link:hover,.Aside_P:hover{
     color: white;
 }
 .Aside_Text{
