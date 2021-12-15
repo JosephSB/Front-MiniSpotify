@@ -7,7 +7,7 @@ const useFormData = () =>{
     const {data} = useContext(AuthContext);
     const {UserID} = data;
 
-    const sendForm = async(formD, url) =>{
+    const sendForm = async(formD, url,call) =>{
         const fd = new FormData(formD);
         fd.set("id_user",UserID);
 
@@ -17,7 +17,10 @@ const useFormData = () =>{
         }).then( response => response.json() )
         .then(
             success => {
-                if(success.operation) setOperation(true);
+                if(success.operation) {
+                    setOperation(true);
+                    call(UserID);
+                }
                 else setMessage(success.data);
             }
         ).catch( error => setMessage(error) );

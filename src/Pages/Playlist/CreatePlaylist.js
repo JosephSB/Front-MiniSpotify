@@ -1,11 +1,13 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Alert from "../../Components/Modals/Alert";
+import AudioContext from "../../Context/AudioContext";
 import useFormData from "../../Hooks/useFormData";
 
 const CreatePlaylist = () =>{
     const form = useRef(null);
     const [fileIMG, setFileIMG] = useState([]);
-    const [sendForm,message,operation] = useFormData()
+    const [sendForm,message,operation] = useFormData();
+    const {getPlaylists } = useContext(AudioContext);
 
     const SubirIMG = (e) => setFileIMG(e.target.files);
 
@@ -13,7 +15,7 @@ const CreatePlaylist = () =>{
         e.preventDefault()
         
         let url = process.env.REACT_APP_API_KEY_URL + 'playlist/newPlaylist';
-        sendForm(form.current, url);
+        sendForm(form.current, url, getPlaylists);
     }
 
     return(

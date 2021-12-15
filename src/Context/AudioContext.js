@@ -14,7 +14,7 @@ const DataAudioProvider = ({ children }) => {
   const [songs, setSongs] = useState([]);
   const [pointer, setPointer] = useState(0);
   const [volumen, setVolumen] = useState(100);
-  //const [playlists, setPlaylists] = useState();
+  const [playlists, setPlaylists] = useState([]);
   const [playing, setPlaying, audio] = useAudio();
   const [dataSong, setDataSong] = useState(dataSongActual);
 
@@ -26,6 +26,17 @@ const DataAudioProvider = ({ children }) => {
         return true;
       });
   };
+
+  const getPlaylists = async (UserID) =>{
+    let options = {
+        body: {userID : UserID}
+    }
+    let url = process.env.REACT_APP_API_KEY_URL+'playlist/getPlaylist'
+
+    helpHttp().post(url,options).then(res => {
+        if(res.operation) setPlaylists(res.data)
+    })
+  }
 
   const playSong = (URLPORTADA, SONGNAME, URL_AUDIO) => {
     audio.pause();
@@ -81,6 +92,8 @@ const DataAudioProvider = ({ children }) => {
     nextSong,
     prevSong,
     playSong,
+    getPlaylists,
+    playlists,
     volumen,
   };
 

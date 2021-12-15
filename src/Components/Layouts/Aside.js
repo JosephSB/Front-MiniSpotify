@@ -1,12 +1,13 @@
-import {useContext, useEffect,useState,useRef} from 'react';
+import {useContext, useEffect,useRef} from 'react';
 import { helpHttp } from '../../Helpers/helpHttp'
 import AuthContext from '../../Context/AuthContext';
 import ItemPlaylist from '../Items/ItemPlaylist';
 import ItemLink from '../Items/ItemLink';
 import BarResponsive from '../Items/BarResponsive';
+import AudioContext from '../../Context/AudioContext';
 
 const Aside = () =>{
-    const [playlists, setPlaylists] = useState([]);
+    const {playlists,getPlaylists } = useContext(AudioContext);
     const {data} = useContext(AuthContext);
     const {Username,UserID} = data;
 
@@ -14,14 +15,7 @@ const Aside = () =>{
 
     useEffect(() => {
         if(UserID.length > 0){
-            let options = {
-                body: {userID : UserID}
-            }
-            let url = process.env.REACT_APP_API_KEY_URL+'playlist/getPlaylist'
-
-            helpHttp().post(url,options).then(res => {
-                if(res.operation) setPlaylists(res.data)
-            })
+            getPlaylists(UserID);
         }
     }, [UserID]);
 
