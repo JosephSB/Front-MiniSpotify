@@ -1,22 +1,25 @@
-import {useState,useEffect} from 'react';
+import {useState,useEffect, useContext} from 'react';
 import SongCard from '../Components/Cards/SongCard'
 import Loader from '../Components/Loaders/Loader';
+import AudioContext from '../Context/AudioContext';
 
-import { helpHttp } from '../Helpers/helpHttp'
 
 const Home = () =>{
-    const [songs, setSongs] = useState([]);
+    //const [songs, setSongs] = useState([]);
     const [page, setPage] = useState(1);
     const [loader, setLoader] = useState(true);
+    const {getSongs,songs} = useContext(AudioContext);
     
 
     useEffect(() => {
         setLoader(true);
+        if(getSongs(page)) setLoader(false);
+        /*
         helpHttp().get(process.env.REACT_APP_API_KEY_URL+'music/getSongs/page='+page)
             .then(data =>{
                 setSongs(data.data)
                 setLoader(false);
-            })
+            })*/
     }, []);
 
     return (

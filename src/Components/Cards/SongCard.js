@@ -2,20 +2,12 @@ import {useContext} from 'react';
 import AudioContext from '../../Context/AudioContext';
 
 const SongCard = ({SONGNAME,URLPORTADA,USERNAME,GENDER,URL_AUDIO}) =>{
-    const {setPlaying,audio,setDataSong} = useContext(AudioContext);
+    const {playSong} = useContext(AudioContext);
 
-    const playSong = () =>{
-        setDataSong({ 
-            ImgPortada: URLPORTADA, 
-            NameSong: SONGNAME
-        });
-        audio.src = URL_AUDIO
-        setPlaying(true)
-        audio.play()
-    }
+    const handleClick = () => playSong(URLPORTADA,SONGNAME,URL_AUDIO);
 
     return(
-        <div className="cardSong" onClick={playSong}>
+        <div className="cardSong" onClick={handleClick}>
             <img className="cardSong__ImgPortada" src={ URLPORTADA } alt={SONGNAME} />
             <div>
                 <p><strong>{ SONGNAME }</strong></p>
