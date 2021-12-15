@@ -1,9 +1,12 @@
 import {useContext} from 'react';
 import AudioContext from '../../Context/AudioContext'
+import useEventListener from '../../Hooks/useEventListener';
 
 const Reproductor = () =>{
-    const {playing,handleplay,handleVolumne, dataSong,nextSong,volumen} = useContext(AudioContext);
+    const {playing,handleplay,handleVolumne, dataSong,nextSong,volumen,prevSong} = useContext(AudioContext);
     const {ImgPortada,NameSong} = dataSong;
+
+    useEventListener("keydown", handleplay);
 
     return (
         <div className="Reproductor">
@@ -13,7 +16,7 @@ const Reproductor = () =>{
             </div>
             <div className="Reproductor_Controles">
                 <div className="Reproductor_Botones">
-                    <i className="fas fa-backward icon"></i>
+                    <i className="fas fa-backward icon" onClick={()=>prevSong()}></i>
                     <i className={`fas ${playing ? "fa-pause-circle icon" : "fa-play-circle icon"} fa-2x`}
                     onClick={handleplay}
                     ></i>

@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { helpHttp } from "../Helpers/helpHttp";
 import useAudio from "../Hooks/useAudio";
+import useEventListener from "../Hooks/useEventListener";
 
 const AudioContext = createContext();
 
@@ -35,24 +36,30 @@ const DataAudioProvider = ({ children }) => {
     audio.src = URL_AUDIO;
     setPlaying(true);
     audio.play();
-
-    audio.addEventListener('ended', () => {
-      nextSong();
-      console.log('termino la cancion, ',SONGNAME)
-      audio.removeEventListener('ended', () => console.log('eliminando el ended'));
-    });
   };
 
-  const nextSong = () => {
-    let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[pointer];
-    playSong(URLPORTADA, SONGNAME, URL_AUDIO);
-
-    if (pointer < 9) setPointer(pointer + 1);
+  const prevSong = () => {
+    let x = pointer - 1;
+    if (x <= 9 && x >= 0) {
+      setPointer(x);
+      let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[x];
+      playSong(URLPORTADA, SONGNAME, URL_AUDIO);
+    }
     else setPointer(0);
   };
 
+  const nextSong = () => {
+    let x = pointer + 1;
+    if (x < 9) {
+      setPointer(x);
+      let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[x];
+      playSong(URLPORTADA, SONGNAME, URL_AUDIO);
+    }
+    else setPointer(0);
 
-  const handleplay = () => {
+  };
+
+  const handleplay = async() => {
     setPlaying(!playing);
     playing ? audio.pause() : audio.play();
   };
@@ -62,6 +69,8 @@ const DataAudioProvider = ({ children }) => {
     audio.volume = parseInt(e.target.value) / 100;
   };
 
+  useEventListener("ended", nextSong,audio);
+
   const data = {
     playing,
     handleplay,
@@ -70,6 +79,7 @@ const DataAudioProvider = ({ children }) => {
     songs,
     getSongs,
     nextSong,
+    prevSong,
     playSong,
     volumen,
   };
