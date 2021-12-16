@@ -3,8 +3,11 @@
     text-align: center;
     padding-top: 20px;
 }
-.Playlist_Title{
+.Playlist_Title,.Playlist_Text{
     color: white;
+}
+.Playlist_Text{
+    font-size: 14px;
 }
 .Playlist_Form{
     width: 100%;
@@ -59,4 +62,25 @@
 .Playlist_TextArea{
     height: 80px;
     resize: none;
+}
+
+.Playlist_Header,.Playlist_Body{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align:  center;
+}
+.Playlist_Header{
+    background-color: rgb(10, 10, 10);
+    @include flex-center;
+}
+.Playlist_PortadaHeader{
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+}
+.Playlist_BodyHeader{
+    width: 100%;
+    max-width: 300px;
+    text-align: start;
 }
