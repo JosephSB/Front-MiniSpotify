@@ -74,13 +74,27 @@
     background-color: rgb(10, 10, 10);
     @include flex-center;
 }
+.Playlist_BoxPortada{
+    position: relative;
+}
 .Playlist_PortadaHeader{
     width: 100%;
     max-width: 300px;
+    max-height: 300px;
     padding: 10px;
+    position: relative;
 }
 .Playlist_BodyHeader{
     width: 100%;
     max-width: 300px;
     text-align: start;
+}
+
+@media screen and (max-width: 450px){
+    .Playlist_Header{
+        flex-direction: column;
+    }
+    .Playlist_PortadaHeader{
+        max-width: 100%;
+    }
 }

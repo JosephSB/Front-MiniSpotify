@@ -69,7 +69,7 @@ const Usuario = () =>{
                 <section className="Usuario_SectionSongs">
                     {loader && <Loader message="Cargando Canciones"/>}
                     {data.songs.length > 0
-                        ? data.songs.map(song => <SongCard key={song.UserID} {...song} />)
+                        ? data.songs.map(song => <SongCard key={song.IDSONG} {...song} />)
                         : <p className="Usuario_Text2">No hay Canciones subidad por esta persona</p>
                     
                     }

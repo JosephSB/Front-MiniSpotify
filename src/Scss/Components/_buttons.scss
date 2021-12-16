@@ -45,3 +45,16 @@
 .Btn2:hover{
     background: rgb(230, 230, 230);
 }
+
+.Btn-Play{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    @include flex-center;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color:rgb(50, 205, 50) ;
+    cursor: pointer;
+}

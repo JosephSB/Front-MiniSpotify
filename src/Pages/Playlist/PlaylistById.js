@@ -19,7 +19,6 @@ const PlaylistById = () =>{
     let { id } = useParams();
 
     useEffect(() => {
-        console.log(data.SONGS.length)
         setLoader(true);
         let options = {
             body: {
@@ -40,10 +39,18 @@ const PlaylistById = () =>{
         <div className="Container Playlist">
             {loader && <Loader message="Cargando Datos"/>}
             <div className='Playlist_Header'>
-                <img className='Playlist_PortadaHeader' src={data.URL_PORTADA} alt={data.NAME} />
+                <div className="Playlist_BoxPortada">
+                    <img className='Playlist_PortadaHeader' src={data.URL_PORTADA} alt={data.NAME} />
+                    <span className="Btn-Play">
+                        <i className="fas fa-play fa-2x"></i>
+                    </span>
+                </div>
                 <div className="Playlist_BodyHeader">
                     <h1 className='Playlist_Title'>{data.NAME}</h1>
-                    <p className='Playlist_Text'>{data.DESCRIPTION}</p>
+                    {data.DESCRIPTION.length > 0
+                        ? <p className='Playlist_Text'>{data.DESCRIPTION}</p>
+                        : <p className='Playlist_Text'>No hay descripcion</p>
+                    }
                 </div>
             </div>
             <div className="Playlist_Body">
