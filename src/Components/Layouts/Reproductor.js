@@ -6,7 +6,9 @@ const Reproductor = () =>{
     const {playing,handleplay,handleVolumne, dataSong,nextSong,volumen,prevSong} = useContext(AudioContext);
     const {ImgPortada,NameSong} = dataSong;
 
-    useEventListener("keydown", handleplay);
+    useEventListener("keydown",(e)=>{
+        if(e.keyCode === 32 && NameSong.length !== 0) handleplay();
+    });
 
     return (
         <div className="Reproductor">
@@ -16,11 +18,11 @@ const Reproductor = () =>{
             </div>
             <div className="Reproductor_Controles">
                 <div className="Reproductor_Botones">
-                    <i className="fas fa-backward icon" onClick={()=>prevSong()}></i>
+                    <i className="fas fa-backward icon" onClick={prevSong}></i>
                     <i className={`fas ${playing ? "fa-pause-circle icon" : "fa-play-circle icon"} fa-2x`}
                     onClick={handleplay}
                     ></i>
-                    <i className="fas fa-forward icon" onClick={()=>nextSong()}></i>
+                    <i className="fas fa-forward icon" onClick={nextSong}></i>
                 </div>
                 <div className="Reproductor_progressBarPlayback"></div>
             </div>

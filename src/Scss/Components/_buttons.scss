@@ -47,8 +47,8 @@
 }
 
 .Btn-Play{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
     @include flex-center;
     color: white;
@@ -57,4 +57,9 @@
     right: 0;
     background-color:rgb(50, 205, 50) ;
     cursor: pointer;
+    transition: background-color .5s;
+}
+
+.Btn-Play:hover{
+    background: rgb(51, 179, 51);
 }

@@ -22,7 +22,7 @@ const Home = () =>{
                 {loader && <Loader message="Cargando Canciones"/>}
                 {
                 songs.length > 0 
-                ? songs.map(song => <SongCard key={song.IDSONG} {...song} />)
+                ? songs.map((song,index) => <SongCard key={index} {...song} index={index} />)
                 : <p>No hay canciones</p>
                 }
             </div>

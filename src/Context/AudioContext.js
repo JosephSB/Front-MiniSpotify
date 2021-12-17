@@ -38,41 +38,49 @@ const DataAudioProvider = ({ children }) => {
     })
   }
 
-  const playSong = (URLPORTADA, SONGNAME, URL_AUDIO) => {
+  const playSong = (URLPORTADA, SONGNAME, URL_AUDIO,index) => {
     audio.pause();
     setDataSong({
       ImgPortada: URLPORTADA,
       NameSong: SONGNAME,
     });
+    setPointer(index);
     audio.src = URL_AUDIO;
     setPlaying(true);
     audio.play();
   };
 
   const prevSong = () => {
-    let x = pointer - 1;
-    if (x <= 9 && x >= 0) {
-      setPointer(x);
-      let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[x];
-      playSong(URLPORTADA, SONGNAME, URL_AUDIO);
+    if(songs.length >0){
+        let x = pointer - 1;
+        if (x < songs.length && x >= 0) handlePointer(x);
+        else handlePointer(0);
     }
-    else setPointer(0);
   };
 
   const nextSong = () => {
-    let x = pointer + 1;
-    if (x < 9) {
-      setPointer(x);
-      let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[x];
-      playSong(URLPORTADA, SONGNAME, URL_AUDIO);
+    if(songs.length >0){
+      let x = pointer + 1;
+      if (x < songs.length) handlePointer(x);
+      else handlePointer(0);
     }
-    else setPointer(0);
-
   };
 
-  const handleplay = async() => {
-    setPlaying(!playing);
-    playing ? audio.pause() : audio.play();
+  const changePlaylist = (newSongs) =>{
+    setSongs(newSongs);
+    let { URLPORTADA, SONGNAME, URL_AUDIO } = newSongs[0];
+    playSong(URLPORTADA, SONGNAME, URL_AUDIO,0);
+  }
+
+  const handlePointer = (point) =>{
+    setPointer(point);
+    let { URLPORTADA, SONGNAME, URL_AUDIO } = songs[point];
+    playSong(URLPORTADA, SONGNAME, URL_AUDIO,point);
+  }
+
+  const handleplay = async(e) => {
+      playing ? audio.pause() : audio.play();
+      setPlaying(!playing);
   };
 
   const handleVolumne = (e) => {
@@ -95,6 +103,7 @@ const DataAudioProvider = ({ children }) => {
     getPlaylists,
     playlists,
     volumen,
+    changePlaylist
   };
 
   return <AudioContext.Provider value={data}>{children}</AudioContext.Provider>;

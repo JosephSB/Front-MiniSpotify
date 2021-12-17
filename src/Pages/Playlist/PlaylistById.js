@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BtnPlayPlaylist from '../../Components/Buttons/BtnPlayPlaylist';
 import SongCard from '../../Components/Cards/SongCard';
 import Loader from '../../Components/Loaders/Loader';
+import AudioContext from '../../Context/AudioContext';
 import { helpHttp } from '../../Helpers/helpHttp';
 
 const dataDefault = {
@@ -16,6 +18,7 @@ const dataDefault = {
 const PlaylistById = () =>{
     const [loader, setLoader] = useState(true);
     const [data, setData] = useState(dataDefault);
+    const {changePlaylist} = useContext(AudioContext);
     let { id } = useParams();
 
     useEffect(() => {
@@ -35,15 +38,15 @@ const PlaylistById = () =>{
         })
     }, [id]);
 
+    const PlayPlaylist = async() => changePlaylist(data.SONGS);
+
     return(
         <div className="Container Playlist">
             {loader && <Loader message="Cargando Datos"/>}
             <div className='Playlist_Header'>
                 <div className="Playlist_BoxPortada">
                     <img className='Playlist_PortadaHeader' src={data.URL_PORTADA} alt={data.NAME} />
-                    <span className="Btn-Play">
-                        <i className="fas fa-play fa-2x"></i>
-                    </span>
+                    {data.SONGS.length > 0 && <BtnPlayPlaylist action={PlayPlaylist} />}
                 </div>
                 <div className="Playlist_BodyHeader">
                     <h1 className='Playlist_Title'>{data.NAME}</h1>
